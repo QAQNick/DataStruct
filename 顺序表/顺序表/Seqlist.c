@@ -191,60 +191,35 @@ void SeqListRemoveAll(PSeqList ps, DataType data)
 int SeqListSize(PSeqList ps)
 {
 	assert(ps);
-	if (NULL == ps)
-	{
-		printf("NULL\n");
-		return 0;
-	}
-	printf("顺序表中有 %d 个有效元素\n", ps->size);
-	return 0;
-
+	return ps->size;
 }
 
 int SeqListCapacity(PSeqList ps)
 {
 	assert(ps);
-	if (NULL == ps)
-	{
-		printf("NULL\n");
-		return 0;
-	}
-	printf("顺序表容量为: %d \n", ps->capacity);
-	return 0;
+	return ps->capacity;
 }
 
 int SeqListEmpty(PSeqList ps)
 {
 	assert(ps);
 	if (NULL == ps)
-	{
-		printf("NULL\n");
-		return 0;
-	}
+		return -1;
 	else
-	{
-		printf("顺序表不为空!\n");
 		return 0;
-	}
 }
 
 DataType SeqListFront(PSeqList ps)
 {
 	assert(ps);
-	if (NULL == ps)
-		return 0;
-	printf("顺序表第一个元素是 %d\n", ps->array[0]);
-	return 0;
+	return ps->array[0];
 }
 
 
 DataType SeqListBack(PSeqList ps)
 {
 	assert(ps);
-	if (NULL == ps)
-		return 0;
-	printf("顺序表最后一个元素是 %d\n", ps->array[ps->size - 1]);
-	return 0;
+	return ps->array[ps->size - 1];
 }
 
 

@@ -37,12 +37,11 @@ int main()
 	SeqListRemoveAll(&s, 2);
 	PrintSeqList(&s);
 
-	SeqListSize(&s);
-	SeqListCapacity(&s);
-	SeqListEmpty(&s);
-	SeqListFront(&s);
-	SeqListBack(&s);
-
+	printf("顺序表有效元素个数: %d \n", SeqListSize(&s));
+	printf("顺序表容量: %d \n", SeqListCapacity(&s));
+	printf("%d\n", SeqListEmpty(&s));
+	printf("顺序表第一个元素: %d \n", SeqListFront(&s));
+	printf("顺序表最后一个元素: %d \n", SeqListBack(&s));
 	SeqListDestroy(&s);
 	return 0;
 }
