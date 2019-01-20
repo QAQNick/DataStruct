@@ -143,7 +143,7 @@ int SeqListFind(PSeqList ps, DataType data)
 		if (ps->array[i] == data)
 		{
 			printf("找到了!\n");
-			return 1;
+			return i;
 		}
 	}
 	printf("找不到!\n");
@@ -153,20 +153,7 @@ int SeqListFind(PSeqList ps, DataType data)
 void SeqListRemove(PSeqList ps, DataType data)
 {
 	assert(ps);
-	if (NULL == ps)
-		return;
-	for (int i = 0; i < ps->size; i++)
-	{
-		if (ps->array[i] == data)
-		{
-			for (int j = i + 1; j < ps->size; j++)
-			{
-				ps->array[j - 1] = ps->array[j];
-			}
-			ps->size--;
-			break;
-		}
-	}
+	SeqListErase(ps, SeqListFind(ps, data));
 }
 
 void SeqListRemoveAll(PSeqList ps, DataType data)
