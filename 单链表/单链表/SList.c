@@ -202,12 +202,7 @@ int SListSize(SList* pl)
 int SListEmpty(SList* pl)
 {
 	assert(pl);
-	if (NULL == pl)
-	{
-		return -1;
-	}
-	else
-		return 1;
+	return 0 == pl->pHead;
 }
 
 // 获取链表的第一个节点
@@ -220,18 +215,16 @@ Node* SListFront(SList* pl)
 // 获取链表的第二个节点 
 Node* SListBack(SList* pl)
 {
+	Node* SecondNode = NULL;
 	assert(pl);
-	if (NULL == pl)
+	SecondNode = pl->pHead;
+	int i = 1;
+	while (SecondNode && i != 0)
 	{
-		printf("链表错误！\n");
-		return 0;
+		SecondNode = SecondNode->pNext;
+		i--;
 	}
-	Node* EndNode = pl->pHead;
-	while (EndNode->pNext != NULL)
-	{
-		EndNode = EndNode->pNext;
-	}
-	return EndNode;
+	return SecondNode;
 }
 
 void SListRemove(SList* pl, SDataType data)
@@ -364,9 +357,9 @@ void Test3()
 	SListRemoveAll(&s, 3);
 	PrintSList(&s);
 
-	printf("%p\n", SListFind(&s, 4));
+	printf("%p\n", SListFind(&s, 2));
 	printf("第一个节点地址: %p \n", SListFront(&s));
-	printf("第二个节点地址: %p \n", SListFront(&s));
+	printf("第二个节点地址: %p \n", SListBack(&s));
 	SListDestroy(&s);
 }
 void Test()
